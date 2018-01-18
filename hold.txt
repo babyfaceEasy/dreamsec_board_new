@@ -1,14 +1,1 @@
 Trello Link : https://trello.com/b/Z4wdfjs4/dreamsecureadmin  (For the Backlog)
-
-//import links
-https://laravelcode.com/post/restful-api-in-laravel-55-using-jwt-authentication
-https://laravelcode.com/post/laravel-passport-create-rest-api-with-authentication
-https://laravelcode.com/post/laravel-55-login-with-only-mobile-number-using-laravel-custom-auth
-
-https://www.youtube.com/watch?v=5MqJk3fdsf0
-
-
-Youtube channel for laravel: Toan Le
-
-ideas for tech
-http://www.coolbusinessideas.com/archives/category/technology/
