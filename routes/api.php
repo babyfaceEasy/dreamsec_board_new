@@ -16,23 +16,3 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-<<<<<<< HEAD
-=======
-
-Route::get('test-api', function(Request $request){
-  return 'kunle';
-});
-Route::post('login', 'API\PassportController@login');
-Route::post('register', 'API\PassportController@register');
-Route::group(['middleware' => 'auth:api'], function(){
-  Route::post('get-details', 'API\PassportController@getDetails');
-  Route::post('logout', 'API\PassportController@logout');
-
-  //admin section
-  Route::get('db-total-users', 'API\AdminController@totalUsersInDB');
-});
-
-/*Route::middleware('auth:api')->get('/get-details', function (Request $request) {
-  Route::post('get-details', 'API\PassportController@getDetails');
-});*/
->>>>>>> Total number of dream secure users, added.
