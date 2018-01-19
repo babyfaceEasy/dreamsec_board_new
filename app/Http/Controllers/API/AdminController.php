@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    //TODO Learn how to return errors for APIs to the front end guys and den implement it here
 
     private function generateResponse($status_txt, $code, $body='')
     {
@@ -46,4 +47,20 @@ class AdminController extends Controller
       $return['body']['data'] = $clients;
       return response()->json($return, 200);
     }//end of listOfClients
+
+    public function clientFullDetails(Request $request, $client_id)
+    {
+      try {
+        $details = Client::find($client_id);
+        //$details = Client::findOrFail($client_id);
+      } catch (Exception $e) {
+        //TODO: log this error
+        $return = $this->generateResponse("ERROR", "110", null);
+        return response()->json($return, 110);
+      }
+      $return = $this->generateResponse('DONE', "200", null);
+      $return['body']['data'] =  $details;
+      return response()->json($return, 200);
+
+    }//end of clientFullDetails
 }//end of AdminController
