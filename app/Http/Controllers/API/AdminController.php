@@ -63,4 +63,25 @@ class AdminController extends Controller
       return response()->json($return, 200);
 
     }//end of clientFullDetails
+
+    public function clientSearch(Request $request, $query)
+    {
+      //return response()->json(['val'=>$query], 200);
+      try {
+        $last_names = Client::where('last_name', 'LIKE', '%'.$query.'%');
+        $other_names = Client::where('other_names', 'LIKE','%'.$query.'%');
+        //$search_results = Client::where('email', 'LIKE', '%'.$query.'%')->orWhere('last_name', 'like', '%'.$query.'%')->orWhere('other_names', 'like', '%'.$query.'%')->get();
+        //$search_results = DB::connection('mysql2')->table('clients')->where('last_name', 'like', "%$query%")->get();
+        $search_results = Client::where('email', 'LIKE', '%'.$query.'%')->union($last_names)->union($other_names)->get();
+
+      } catch (\Exception $e) {
+        //TODO: log this error
+        $return = $this->generateResponse("ERROR", "110", null);
+        return response()->json($return, 110);
+      }
+
+      $return = $this->generateResponse("DONE", "200", null);
+      $return['body']['data'] = $search_results;
+      return response()->json($return, 200);
+    }//end of clientSearch
 }//end of AdminController

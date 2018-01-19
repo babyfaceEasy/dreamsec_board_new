@@ -29,4 +29,5 @@ Route::group(['middleware' => 'auth:api'], function(){
   Route::post('db-users-count', 'API\AdminController@totalDBClients');
   Route::post('list-of-users', 'API\AdminController@listOfClients');
   Route::get('user/{client_id}/details', 'API\AdminController@clientFullDetails');
+  Route::get('user/{query}/search', 'API\AdminController@clientSearch');
 });
