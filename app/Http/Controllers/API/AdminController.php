@@ -115,4 +115,20 @@ class AdminController extends Controller
       return response()->json($return, 200);
 
     }// end of clientDangerOccurencesDetails
+
+    public function clientDangerOccurencesCoordinates(Request $request, $client_id)
+    {
+      try {
+        $occurences_coordinates = Data::select('id', 'client_id', 'lon', 'lat')->where('client_id', $client_id)->get();
+      } catch (Exception $e) {
+        //TODO: log this error
+        $return = $this->generateResponse("ERROR", "110", null);
+        return response()->json($return, 110);
+      }
+
+      $return = $this->generateResponse("DONE", "200", null);
+      $return['body']['data'] = $occurences_coordinates;
+      return response()->json($return, 200);
+
+    }//end of clientDangerOccurencesCoordinates
 }//end of AdminController
