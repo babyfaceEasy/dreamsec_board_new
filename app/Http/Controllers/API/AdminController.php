@@ -4,12 +4,14 @@ namespace App\Http\Controllers\API;
 
 use DB;
 use App\Client;
+use App\Data;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     //TODO Learn how to return errors for APIs to the front end guys and den implement it here
+    //TODO 2: learn how to add pagination for your list data and apply where needed.
 
     private function generateResponse($status_txt, $code, $body='')
     {
@@ -74,7 +76,7 @@ class AdminController extends Controller
         //$search_results = DB::connection('mysql2')->table('clients')->where('last_name', 'like', "%$query%")->get();
         $search_results = Client::where('email', 'LIKE', '%'.$query.'%')->union($last_names)->union($other_names)->get();
 
-      } catch (\Exception $e) {
+      } catch (Exception $e) {
         //TODO: log this error
         $return = $this->generateResponse("ERROR", "110", null);
         return response()->json($return, 110);
@@ -84,4 +86,33 @@ class AdminController extends Controller
       $return['body']['data'] = $search_results;
       return response()->json($return, 200);
     }//end of clientSearch
+
+    public function clientDangerOccurencesCount(Request $request, $client_id)
+    {
+      try {
+        $occurences_count = Data::where('client_id', $client_id)->count();
+      } catch (Exception $e) {
+        //TODO: log this error
+        $return = $this->generateResponse("ERROR", "110", null);
+        return response()->json($return, 110);
+      }
+      $return = $this->generateResponse("DONE", "200", null);
+      $return['body']['data'] = $occurences_count;
+      return response()->json($return, 200);
+    }//end of clientDangerOccurencesCount
+
+    public function clientDangerOccurencesDetails(Request $request, $client_id)
+    {
+      try {
+        $occurences_details = Data::where('client_id', $client_id)->get();
+      } catch (Exception $e) {
+        //TODO: log this error
+        $return = $this->generateResponse("ERROR", "110", null);
+        return response()->json($return, 110);
+      }
+      $return = $this->generateResponse("DONE", "200", null);
+      $return['body']['data'] = $occurences_details;
+      return response()->json($return, 200);
+
+    }// end of clientDangerOccurencesDetails
 }//end of AdminController

@@ -30,4 +30,6 @@ Route::group(['middleware' => 'auth:api'], function(){
   Route::post('list-of-users', 'API\AdminController@listOfClients');
   Route::get('user/{client_id}/details', 'API\AdminController@clientFullDetails');
   Route::get('user/{query}/search', 'API\AdminController@clientSearch');
+  Route::get('user/{client_id}/panic-details', 'API\AdminController@clientDangerOccurencesDetails');
+  Route::get('user/{client_id}/panic-count', 'API\AdminController@clientDangerOccurencesCount');
 });
