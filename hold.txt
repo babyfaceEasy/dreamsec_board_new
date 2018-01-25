@@ -8,3 +8,29 @@ git checkout master
 git pull               # to update the state to the latest remote master state
 git merge develop      # to bring changes to local master from your develop branch
 git push origin master # push current HEAD to remote master branch
+
+
+//apss for django
+https://elweb.co/33-projects-that-make-developing-django-apps-awesome/
+https://djangopackages.org/
+
+
+django sites
+https://www.twago.com/s/projects/django/
+
+ideas for developer
+https://skillcrush.com/2014/08/11/portfolio-advice-2/
+
+portfolio samples
+https://medium.freecodecamp.org/15-web-developer-portfolios-to-inspire-you-137fb1743cae
+https://rrott.com/portfolio/back-end/
+https://timmyomahony.com/
+http://jtom.me/skills-and-offer/
+
+Think about taking a course on udemy.
+Courses like big data and programming.
+
+jobs
+https://stackoverflow.com/jobs/166118/senior-software-developers-avaaz-foundation?med=clc
+https://secure.avaaz.org/en/hiring/#op-45362-senior-software-developers
+https://stackoverflow.com/jobs/160491/customer-support-engineer-platformsh?med=clc
