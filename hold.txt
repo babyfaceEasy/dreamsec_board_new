@@ -34,3 +34,7 @@ jobs
 https://stackoverflow.com/jobs/166118/senior-software-developers-avaaz-foundation?med=clc
 https://secure.avaaz.org/en/hiring/#op-45362-senior-software-developers
 https://stackoverflow.com/jobs/160491/customer-support-engineer-platformsh?med=clc
+https://stackoverflow.com/jobs/154192/full-stack-developer-python-django-sherpany?med=clc
+
+//PHP practise questions
+https://www.w3resource.com/php-exercises/php-array-exercises.php
