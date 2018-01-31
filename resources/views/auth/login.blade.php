@@ -33,7 +33,7 @@
 				<form class="login100-form validate-form" method="post" action="{{ route('login') }}" id="loginForm">
           {{ csrf_field() }}
 					<span class="login100-form-logo">
-						<img src="images/favicon.png">
+						<img src="{{ asset('images/favicon.png') }}">
 					</span>
 
 					<span class="login100-form-title p-b-34 p-t-27">
@@ -61,7 +61,7 @@
 					</div>
 
 					<div class="contact100-form-checkbox">
-						<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+						<input type="checkbox" id="ckb1" class="input-checkbox100" name="remember" {{ old('remember') ? 'checked' : '' }}>
 						<label class="label-checkbox100" for="ckb1">
 							Remember me
 						</label>
