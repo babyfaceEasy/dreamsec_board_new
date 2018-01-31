@@ -38,3 +38,6 @@ https://stackoverflow.com/jobs/154192/full-stack-developer-python-django-sherpan
 
 //PHP practise questions
 https://www.w3resource.com/php-exercises/php-array-exercises.php
+
+//for seyi to watch
+https://www.youtube.com/watch?v=i5qpS_D8Law
