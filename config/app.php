@@ -179,6 +179,7 @@ return [
 
         //Added by me
         Laravel\Passport\PassportServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
 
     ],
 
@@ -228,6 +229,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        //added by me
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
     ],
 

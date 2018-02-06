@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//for the datatables
+Route::get('/home/datatable/data', 'HomeController@getData')->name('home.data');
+Route::get('/client/activity/{client_id}', 'HomeController@showClientActivity')->name('client.activity');
