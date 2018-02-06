@@ -1,5 +1,12 @@
 @include('layouts.inc.header');
 
+<style media="screen">
+  #map-canvas {
+    height: 300px;
+    width: 100%;
+  }
+</style>
+
 
 <!-- page content -->
 <div class="right_col" role="main">
@@ -104,3 +111,17 @@
 @include('layouts.inc.footer');
 
 <!-- js -->
+<script type="text/javascript">
+function initMap() {
+      var uluru = {lat: -25.363, lng: 131.044};
+      var map = new google.maps.Map(document.getElementById('map-canvas'), {
+        zoom: 4,
+        center: uluru
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTqyDjboWtpBfa-nJqIx92hc9JVKl9TjI&callback=initMap"></script>

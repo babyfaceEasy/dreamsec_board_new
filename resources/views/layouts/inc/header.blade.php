@@ -33,8 +33,8 @@
     <link href="{{ asset('build/css/custom.min.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
+    <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="{{ asset('js/map.js') }}"></script> -->
   </head>
 <script>
 window.onload = function () {
