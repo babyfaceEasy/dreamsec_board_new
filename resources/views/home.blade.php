@@ -41,6 +41,9 @@
                   <th>Last Name</th>
                   <th>Other Name</th>
                   <th>Email</th>
+                  <th>Mobile No.</th>
+                  <th>Gender</th>
+                  <th>Register Date</th>
                   <th>View</th>
                 </tr>
               </thead>
@@ -77,7 +80,10 @@ $(function(){
       { data: 'last_name', name: 'last_name' },
       { data: 'other_names', name: 'other_names' },
       { data: 'email', name: 'email' },
-      { data: 'view', name: 'view' },
+      { data: 'phone', name: 'phone' },
+      { data: 'gender', name: 'gender' },
+      { data: 'created_at', name:'created_at' },
+      { data: 'view', name: 'view', orderable: false, searchable: false },
     ]
   });
 });

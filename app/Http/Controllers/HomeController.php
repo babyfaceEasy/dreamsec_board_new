@@ -35,7 +35,10 @@ class HomeController extends Controller
 
     public function getData()
     {
-      $registered_users = Client::orderBy('created_at', 'desc');
+      //$registered_users = Client::orderBy('created_at', 'desc');
+      $registered_users = Client::select(['id', 'last_name', 'other_names', 'email', 'phone', 'gender', 'created_at'])
+        ->orderBy('created_at', 'desc')
+        ->get();
       return DataTables::of($registered_users)
         ->addIndexColumn()
         ->addColumn('view', function(Client $client){
@@ -50,5 +53,48 @@ class HomeController extends Controller
       //select all the panic activities from data table for the given user
       $panic_data = Data::where('client_id', $client_id)->get();
       return view('activity', compact('panic_data'));
-    }//end of showClientActivity()
+    }
+
+    /**
+     * This returns the view that shows all emails of dream secure app users in the database.
+     * @return \Illuminate\Http\Response
+     */
+    public function showAllClientEmails()
+    {
+      return view('all_emails');
+    }
+
+    /**
+     * This returns all the emails of dream secure app users.
+     * @return \Yajra\Datatables\Datatables
+     */
+     public function allClientEmails()
+     {
+       $emails = Client::select(['id', 'last_name', 'other_names', 'email'])->orderBy('created_at', 'desc')->get();
+       return DataTables::of($emails)
+        ->addIndexColumn()
+        ->toJson();
+     }
+
+     /**
+      * This returns the view that shows all phone numbers of dream secure app users in db
+      * @return \Illuminate\Http\Response
+      */
+      public function showAllClientDigits()
+      {
+        return view('all_digits');
+      }
+
+      /**
+       * This returns all mobile nos of dream secure app users
+       * @return \Yajra\Datatables\Datatables
+       */
+       public function allClientDigits()
+       {
+         $digits = Client::select(['id', 'last_name', 'other_names', 'phone'])->orderBy('created_at', 'desc')->get();
+         return DataTables::of($digits)
+          ->addIndexColumn()
+          //->make(true)
+          ->toJson();
+       }
 }

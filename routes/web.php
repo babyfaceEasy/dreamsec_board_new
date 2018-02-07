@@ -22,3 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //for the datatables
 Route::get('/home/datatable/data', 'HomeController@getData')->name('home.data');
 Route::get('/client/activity/{client_id}', 'HomeController@showClientActivity')->name('client.activity');
+
+Route::get('/all-emails', 'HomeController@showAllClientEmails')->name('all.emails');
+Route::get('/all-emails/datatable/data', 'HomeController@allClientEmails')->name('all.emails.data');
+
+Route::get('/all-digits', 'HomeController@showAllClientDigits')->name('all.digits');
+Route::get('/all-digits/datatable/data', 'HomeController@allClientDigits')->name('all.digits.data');

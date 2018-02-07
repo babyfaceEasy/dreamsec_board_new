@@ -274,11 +274,11 @@ function toggleDataSeries(e) {
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.php">Home</a></li>
+                      <li><a href="{{ route('home') }}">Home</a></li>
                       <li><a href="#" data-toggle="modal" data-target="#exampleModal">Total Download</a></li>
-                      <li><a href="register_user.php">Register Users</a></li>
-                      <li><a href="email_all.php">All E-mails</a></li>
-                      <li><a href="phone_all.php">All Phone Numbers</a></li>
+                      <!--<li><a href="register_user.php">Register Users</a></li>-->
+                      <li><a href="{{ route('all.emails') }}">All E-mails</a></li>
+                      <li><a href="{{ route('all.digits') }}">All Phone Numbers</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Report <span class="fa fa-chevron-down"></span></a>
