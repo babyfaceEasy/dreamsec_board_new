@@ -283,7 +283,7 @@ function toggleDataSeries(e) {
                   </li>
                   <li><a><i class="fa fa-edit"></i> Report <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_report.php">General Report</a></li>
+                      <li><a href="{{ route('general.report') }}">General Report</a></li>
 
 
 

@@ -52,7 +52,10 @@ class HomeController extends Controller
     {
       //select all the panic activities from data table for the given user
       $panic_data = Data::where('client_id', $client_id)->get();
-      return view('activity', compact('panic_data'));
+      $js_data = Data::select(['id', 'lat', 'lon'])->where('client_id', $client_id)->get();
+      $js_data = $js_data->toArray();
+      //dd(json_encode($panic_data));
+      return view('activity', compact('panic_data', 'js_data'));
     }
 
     /**
@@ -97,4 +100,43 @@ class HomeController extends Controller
           //->make(true)
           ->toJson();
        }
+
+       /**
+        * This returnt the general reports page for you
+        * @return \Illuminate\Http\Response
+        */
+        public function showGeneralReport()
+        {
+          return view('general_report');
+        }
+
+        /**
+         * This returns all the users in tthe db with their hit rate
+         * @return \Yajra\Datatables\Datatables
+         */
+         public function generalReportData()
+         {
+           $clients = Client::all();
+           //$data = Data::where('client_id', '=', $client->id)->get();
+           //dd($data->count());
+
+           return DataTables::of($clients)
+           ->addColumn('fullname', function( Client $client){
+             return $client->last_name .' '. $client->other_names;
+           })
+           ->addColumn('total_panics', function(Client $client){
+              return Data::where('client_id', '=', $client->id)->count();
+           })
+           ->addColumn('actions', function(Client $client){
+             return '<a href="'.route('client.activity', ['client_id' => $client->id]).'"><span class="glyphicon glyphicon-eye-open"></span></a>';
+           })
+           ->rawColumns(['actions'])
+           ->addIndexColumn()
+           ->toJson();
+
+           /*$report = DB::table('clients')
+            ->join('data', 'clients.id', '=', 'data.client_id')
+            ->select('clients.last_name', 'clients.other_names', )
+            */
+         }
 }

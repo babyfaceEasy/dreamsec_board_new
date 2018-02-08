@@ -28,3 +28,6 @@ Route::get('/all-emails/datatable/data', 'HomeController@allClientEmails')->name
 
 Route::get('/all-digits', 'HomeController@showAllClientDigits')->name('all.digits');
 Route::get('/all-digits/datatable/data', 'HomeController@allClientDigits')->name('all.digits.data');
+
+Route::get('/general-report', 'HomeController@showGeneralReport')->name('general.report');
+Route::get('/general-report/datatable/data', 'HomeController@generalReportData')->name('general.report.data');

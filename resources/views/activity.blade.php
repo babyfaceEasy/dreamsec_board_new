@@ -67,6 +67,8 @@
                     <!-- start recent activity -->
                     <ul class="messages">
 
+                      <?php //echo json_encode($js_data); ?>
+
                       <!-- Write it here -->
 
                       @foreach ($panic_data as $data)
@@ -113,15 +115,36 @@
 <!-- js -->
 <script type="text/javascript">
 function initMap() {
+      var locations = <?php echo  json_encode($js_data); ?>;
+      //alert(locations[0].id);
       var uluru = {lat: -25.363, lng: 131.044};
+      var center = new google.maps.LatLng(locations[0].lat, locations[0].lon);
       var map = new google.maps.Map(document.getElementById('map-canvas'), {
-        zoom: 4,
-        center: uluru
+        zoom: 9,
+        center: new google.maps.LatLng(locations[0].lat, locations[0].lon)
       });
-      var marker = new google.maps.Marker({
+
+      var infowindow = new google.maps.InfoWindow();
+      var marker, i;
+      for (var i = 0; i < locations.length; i++) {
+        marker = new  google.maps.Marker({
+          position: new google.maps.LatLng(locations[i].lat, locations[i].lon),
+          title: locations[i].id,
+          map:map
+        });
+
+        /*google.maps.event.addListener(marker, 'click', (function(marker, i){
+          return function(){
+            infowindow.setContent(locations[i].id);
+            infowindow.open(map, marker);
+          }
+        })(marker, i);
+        */
+      }
+      /*var marker = new google.maps.Marker({
         position: uluru,
         map: map
-      });
+      });*/
     }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTqyDjboWtpBfa-nJqIx92hc9JVKl9TjI&callback=initMap"></script>
