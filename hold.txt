@@ -14,6 +14,10 @@ git push origin master # push current HEAD to remote master branch
 https://elweb.co/33-projects-that-make-developing-django-apps-awesome/
 https://djangopackages.org/
 
+VPS links for installation
+https://www.howtoforge.com/tutorial/centos-lamp-server-apache-mysql-php/
+https://www.hugeserver.com/kb/install-laravel5-php7-apache-centos7/
+
 
 django sites
 https://www.twago.com/s/projects/django/

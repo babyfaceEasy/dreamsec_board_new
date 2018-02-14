@@ -275,7 +275,7 @@ function toggleDataSeries(e) {
                   <li><a><i class="fa fa-home"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ route('home') }}">Home</a></li>
-                      <li><a href="#" data-toggle="modal" data-target="#exampleModal">Total Download</a></li>
+                      <!--<li><a href="#" data-toggle="modal" data-target="#exampleModal">Total Download</a></li>-->
                       <!--<li><a href="register_user.php">Register Users</a></li>-->
                       <li><a href="{{ route('all.emails') }}">All E-mails</a></li>
                       <li><a href="{{ route('all.digits') }}">All Phone Numbers</a></li>
@@ -289,7 +289,7 @@ function toggleDataSeries(e) {
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> Request <span class="fa fa-chevron-down"></span></a>
+                  <!--<li><a><i class="fa fa-desktop"></i> Request <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#" data-toggle="modal" data-target="#totalRequest">Total Request</a></li>
 
@@ -300,7 +300,7 @@ function toggleDataSeries(e) {
                       <li><a href="location.php">Crime Area</a></li>
 
                     </ul>
-                  </li>
+                  </li>-->
 
                 </ul>
               </div>
@@ -343,20 +343,23 @@ function toggleDataSeries(e) {
 
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <!--<a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                     <img src="images/img.jpg" alt="">Fredrick Head
                     <span class=" fa fa-angle-down"></span>
-                  </a>
+                  </a>-->
+                  <a href="{{ route('logout') }}" data-toggle="tooltip" data-placement="top" title="Logout"
+                      onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">Logout </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <!--<li><a href="javascript:;"> Profile</a></li>-->
-                    <!--<li>
+                    <li><a href="javascript:;"> Profile</a></li>
+                    <li>
                       <a href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
                         <span>Settings</span>
                       </a>
-                    </li>-->
-                    <!--<li><a href="javascript:;">Help</a></li>-->
-                    <!--<li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>-->
+                    </li>
+                    <li><a href="javascript:;">Help</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                     <li>
                       <a href="{{ route('logout') }}" data-toggle="tooltip" data-placement="top" title="Logout"
                           onclick="event.preventDefault();
